@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1",
+    "authorIcon": "https://miro.medium.com/fit/c/20/20/1*mDhF9X4VO0rCrJvWFatyxg.png",
+    "author": "Michal Malewicz",
+    "category": "UX Collective",
+    "title": "The world is running on bad UI",
+    "introduction": "We get excited by the new, slick, modern apps, yet things that are important are outdated AF.",
+    "date": "2021-02-21",
+    "readingDuration": 5,
+    "image": "https://miro.medium.com/fit/c/200/133/1*cz87XtGLssnDTQw2Qa6OrA.png",
+    "likesCount": 32,
+    "content": "Lorem ipsum 1"
+  },
+  {
+    "id": "2",
+    "authorIcon": "https://miro.medium.com/fit/c/20/20/1*uT00jLxbMVUKZXclfBv77g.png",
+    "author": "Ben Le Fort",
+    "category": "Making of Millionaire",
+    "title": "Generating Passive Income Is Hard, Here Is a Better Option",
+    "introduction": "The Brutal truth about passive income",
+    "date": "2021-01-25",
+    "readingDuration": 6,
+    "image": "https://miro.medium.com/fit/c/200/133/1*HZFTnCQNJBfGBdKcywcKXw.jpeg",
+    "likesCount": 412,
+    "content": "Lorem ipsum 2"
+  }
+]
