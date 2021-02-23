@@ -3,7 +3,7 @@ const validator = require('validator')
 const bcrypt = require('bcrypt')
 
 const UserSchema = mongoose.Schema({
-    username: {
+    fullName: {
         type: String,
         required: true,
         unique: true,
@@ -12,7 +12,7 @@ const UserSchema = mongoose.Schema({
     password: {
         type: String,
         required: true,
-        min: [8, 'password must be at least 8 chars long']
+        min: [5, 'password must be at least 5 chars long']
     },
     email: {
         type: String,
