@@ -15,6 +15,7 @@ createArticle = async (req, res) => {
     try {
         const article = new Article(req.body)
         article.author = user._id
+        article.image = req.file.path
         const createdArticle = await article.save()
         if (!createdArticle) throw createdArticle.json()
         res.json(createdArticle)
