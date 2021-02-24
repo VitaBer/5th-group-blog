@@ -5,6 +5,10 @@ const routes = require('./routes/routes')
 const cors = require('cors')
 require('dotenv').config()
 
+mongoose.connection.on('error', function(err) {
+  console.log(err)
+});
+
 mongoose.connect('mongodb://localhost/blog', {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -1,4 +1,4 @@
-fetch("./articles/articles.json") // ToDo - update url to localhost:....
+fetch("http://localhost:3003/article/amount=100")
   .then((response) => response.json())
   .then((data) => showArticles(data));
 
