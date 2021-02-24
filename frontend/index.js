@@ -1,4 +1,4 @@
-fetch("http://localhost:3003/article/amount=100")
+fetch("http://localhost:3000/article/amount=100")
   .then((response) => response.json())
   .then((data) => showArticles(data));
 
