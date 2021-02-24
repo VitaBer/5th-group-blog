@@ -1,9 +1,9 @@
-require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const routes = require('./routes/routes')
 const cors = require('cors')
+require('dotenv').config()
 
 mongoose.connection.on('error', function(err) {
   console.log(err)
