@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 signUp = async (req, res) => {
     try {
         const user = new User(req.body)
+        user.profileImgURL = req.file.path
         const createdUser = await user.save()
         res.json(createdUser)
     } catch (e) {
@@ -50,8 +51,9 @@ logOut = async (req, res) => {
 
 changeProfilePic = async (req, res) => {
     const user = req.user
+    const newProfilePic = req.file.path
     try {
-        const updated = await User.findOneAndUpdate({username: user.username}, req.body, {new: true})
+        const updated = await User.findOneAndUpdate({_id: user._id}, {profileImgURL: newProfilePic}, {new: true})
         if (!updated) throw updated.json()
         res.json(updated)
     } catch (e) {
