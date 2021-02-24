@@ -10,6 +10,16 @@ getArticles = async (req, res) => {
     }
 }
 
+getArticle = async (req, res) => {
+    try {
+        const article = await Article.findOne({_id: req.params.id})
+        if (!article) throw 'no such article'
+        res.json(article)
+    } catch (e) {
+        res.status(400).json(e)
+    }
+}
+
 createArticle = async (req, res) => {
     const user = req.user
     try {
@@ -49,5 +59,6 @@ module.exports = {
     getArticles,
     createArticle,
     clapArticle,
-    deleteArticle
+    deleteArticle,
+    getArticle
 }

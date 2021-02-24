@@ -24,6 +24,7 @@ router.get('/article/amount=:amount', ArticleController.getArticles)
 router.post('/article/create', UserAuth, upload.single('articleImg'), ArticleController.createArticle)
 router.post('/article/clap/:id', UserAuth, ArticleController.clapArticle)
 router.delete('/article/delete/:id', UserAuth, ArticleController.deleteArticle)
+router.get('/article/:id', ArticleController.getArticle)
 
 // users
 router.post('/user/signup', upload.single('profileImg'), UserController.signUp)
