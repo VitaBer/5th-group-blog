@@ -5,6 +5,10 @@ const mongoose = require('mongoose')
 const routes = require('./routes/routes')
 const cors = require('cors')
 
+mongoose.connection.on('error', function(err) {
+  console.log(err)
+});
+
 mongoose.connect('mongodb://localhost/blog', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
