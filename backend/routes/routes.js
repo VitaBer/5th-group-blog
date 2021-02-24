@@ -18,7 +18,7 @@ const ArticleController = require('../article/articleController')
 router.get('/article/amount=:amount', ArticleController.getArticles)
 router.post('/article/create', UserAuth, ArticleController.createArticle)
 router.post('/article/clap/:id', UserAuth, ArticleController.clapArticle)
-
+router.delete('/article/delete/:id', UserAuth, ArticleController.deleteArticle)
 
 // users
 router.post('/user/signup', UserController.signUp)

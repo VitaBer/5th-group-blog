@@ -14,7 +14,7 @@ signUp = async (req, res) => {
 
 logIn = async (req, res) => {
     try {
-        const user = await User.findOne({username: req.body.username})
+        const user = await User.findOne({email: req.body.email})
         if (!user) throw 'no user found'
 
         const confirm = await bcrypt.compare(req.body.password, user.password)
@@ -50,7 +50,6 @@ logOut = async (req, res) => {
 
 changeProfilePic = async (req, res) => {
     const user = req.user
-    console.log(req.body)
     try {
         const updated = await User.findOneAndUpdate({username: user.username}, req.body, {new: true})
         if (!updated) throw updated.json()

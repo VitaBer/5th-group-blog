@@ -5,7 +5,7 @@ userMiddleware = async (req, res, next) => {
     const token = req.header('token')
 
     try {
-        const decoded = await jwt.verify(token, 'superSecret')
+        const decoded = await jwt.verify(token, process.env.SECRET)
         const user = await User.findOne({_id: decoded._id, 'tokens.token': token})
         if (!user) throw 'auth failed'
         req.user = user
