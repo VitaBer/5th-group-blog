@@ -2,7 +2,7 @@ const Article = require('./Article')
 
 getArticles = async (req, res) => {
     try {
-        const articles = await Article.find({}).sort({date: -1}).limit(+req.params.amount)
+        const articles = await Article.find({}).sort({date: -1}).limit(+req.params.amount).populate('author')
         if (!articles) throw 'no articles found'
         res.json(articles)
     } catch (e) {
@@ -12,7 +12,7 @@ getArticles = async (req, res) => {
 
 getArticle = async (req, res) => {
     try {
-        const article = await Article.findOne({_id: req.params.id})
+        const article = await await Article.findOne({_id: req.params.id})
         if (!article) throw 'no such article'
         res.json(article)
     } catch (e) {
