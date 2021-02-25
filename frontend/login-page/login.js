@@ -27,7 +27,7 @@ document.querySelector('#login-form').addEventListener('submit', async (e) => {
     localStorage.setItem('fullName', data.fullName)
     localStorage.setItem('email', data.email)
     localStorage.setItem('token', data.tokens[0].token)
-    if (data.profileImgURL) localStorage.setItem('profileImgURL', `https://tvart.lt:3000/${data.profileImgURL}`)
+    if (data.profileImgURL) localStorage.setItem('profileImgURL', `https://tvart.lt/blog/${data.profileImgURL}`)
     window.location.href = '../index.html'
   } catch (e) {
     document.querySelector('#wrong').style.display = 'block'
