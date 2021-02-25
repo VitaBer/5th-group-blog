@@ -12,7 +12,8 @@ const ArticleSchema = mongoose.Schema({
     image: String,
     author: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true
+        required: true,
+        ref: "user"
     },
     claps: {
         type: Number,

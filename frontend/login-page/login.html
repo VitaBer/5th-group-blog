@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium: Log-in</title>
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <script defer src="./login.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <img id='login-logo' src="../assets/medium-logo.svg" alt="logo">
+    <div class='login__container'>
+        <form class='login-register' id='login-form' autocomplete="off">
+            <input type="email" id="login-email" placeholder="email">
+            <input type="password" id="login-password" placeholder="password">
+            <p id='wrong'>Wrong email or password</p>
+            <button class="button" style="vertical-align:middle"><span>Log-in </span></button>
+        </form>
+        <p id='dont-have-acc'>Dont have account? <span id='register-page'>Register</span></p>
+    </div>
+    <div class='register__container'>
+        <form class='login-register' id='register-form' autocomplete="off">
+            <input type="text" id="fullName" placeholder="your full name">
+            <input type="email" id="register-email" placeholder="email">
+            <input type="password" id="register-password" placeholder="password">
+            <p class='uploadImageText'>Upload profile image (optional)</p>
+            <input type="file" name="file" id="file" class="inputfile">
+            <label for="file">Choose a file</label>
+            <button class="button" style="vertical-align:middle"><span>Register </span></button>
+            <p id='dont-have-acc'>Already have account? <span id='login-page'>Log-in</span></p>
+        </form>
+    </div>
+</body>
+
+</html>
