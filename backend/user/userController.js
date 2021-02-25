@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken')
 signUp = async (req, res) => {
     try {
         const user = new User(req.body)
-        user.profileImgURL = req.file.path
+        if (req.file) user.profileImgURL = req.file.path
         const createdUser = await user.save()
         res.json(createdUser)
     } catch (e) {
