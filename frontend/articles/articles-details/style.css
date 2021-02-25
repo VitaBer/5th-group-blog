@@ -39,3 +39,15 @@ article {
     line-height: 32px;
     font-size: 21px;
 }
+
+aside {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    margin: 0 1em;
+}
+
+aside #add-clap-button {
+    font-size: 32px;
+    cursor: pointer;
+}

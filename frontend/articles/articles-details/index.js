@@ -1,19 +1,18 @@
 const urlParams = new URLSearchParams(window.location.search);
-const articleId = urlParams.get('article');
+const articleId = urlParams.get("article");
 
 console.log(articleId);
 
 fetch(`https://tvart.lt/blog/article/${articleId}`)
-    .then(response => response.json())
-    .then(data => displayArticle(data));
+  .then((response) => response.json())
+  .then((data) => displayArticle(data));
 
 const displayArticle = (article) => {
-    let articleDate = new Date(article.date);
-    const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+  let articleDate = new Date(article.date);
+  const dateOptions = { year: "numeric", month: "short", day: "numeric" };
 
-    let articleElement = document.querySelector('#article-container');
-    articleElement.innerHTML = 
-        `<article>
+  let articleElement = document.querySelector("#article-container");
+  articleElement.innerHTML = `<article>
             <div class="article-headline">
                 <h1>${article.header}</h1>
                 <div class="introduction">${article.introduction}</div>
@@ -32,6 +31,34 @@ const displayArticle = (article) => {
             </div>
         </article>
         <aside>
-            ${article.claps} claps
+            <span id="article-claps">${article.claps}</span> claps
+            <a id="add-clap-button">
+                <i class="fas fa-sign-language" data-article="${article._id}"></i>
+            </a>
         </aside>`;
-}
+
+  let clapButtonElement = document.querySelector("#add-clap-button");
+  clapButtonElement.addEventListener("click", function (e) {
+    let articleId = e.target.dataset.article;
+    fetch(`https://tvart.lt/blog/article/clap/${articleId}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        token: sessionStorage.getItem("token"),
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+};
+// ToDo - Claps increase, Login/Register functionality to be taken from backend, author icon
