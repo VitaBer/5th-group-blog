@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    font-family: fell, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+html, body {
+    margin: 0;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 400;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+
+article {
+    max-width: 75%;
+}
+
+.article-headline .introduction {
+    color:rgba(117, 117, 117, 1);
+    font-size: 22px;
+}
+
+.article-image {
+    text-align: center;
+}
+
+.article-date, .article-reading-time {
+    color: rgba(117, 117, 117, 1);
+}
+
+.article-body {
+    line-height: 32px;
+    font-size: 21px;
+}

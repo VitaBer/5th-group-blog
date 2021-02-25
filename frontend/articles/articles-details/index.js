@@ -3,38 +3,35 @@ const articleId = urlParams.get('article');
 
 console.log(articleId);
 
-// fetch(`localhost:3004/api/articles/${articleId}`)      // ToDo - update url to localhost:....
-//     .then(response => response.json())
-//     .then(data => displayArticle(data));
-
-fetch('../articles.json')  // ToDo - update url to localhost:....
+fetch(`https://tvart.lt/blog/article/${articleId}`)
     .then(response => response.json())
-    .then(articles => articles.filter((articleItem) => articleItem.id === articleId))
-    .then(filteredArticles => filteredArticles[0])
-    .then(article => displayArticle(article));
+    .then(data => displayArticle(data));
 
 const displayArticle = (article) => {
+    let articleDate = new Date(article.date);
+    const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+
     let articleElement = document.querySelector('#article-container');
     articleElement.innerHTML = 
         `<article>
-            <div class="article-text">
-                <h1>${article.title}</h1>
+            <div class="article-headline">
+                <h1>${article.header}</h1>
                 <div class="introduction">${article.introduction}</div>
                 <div class="article-details">
                     <img class="author-icon" src="${article.authorIcon}">
                     <span>${article.author}</span>
-                    <span class="article-date">${article.date}</span>
+                    <span class="article-date">${articleDate.toLocaleDateString("en-us", dateOptions)}</span>
                     <span class="article-reading-time">${article.readingDuration} min read</span>
                 </div>
             </div>
             <div class="article-image">
-                <img src="${article.image}">
+                <img src="https://tvart.lt/blog/${article.image}">
             </div>
-            <div class="article-content">
-                ${article.content}
+            <div class="article-body">
+                ${article.body}
             </div>
         </article>
         <aside>
-            ${article.likesCount} claps
+            ${article.claps} claps
         </aside>`;
 }

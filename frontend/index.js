@@ -1,4 +1,5 @@
-fetch("http://localhost:3000/article/amount=100")
+
+fetch("https://tvart.lt/blog/article/amount=100")
   .then((response) => response.json())
   .then((data) => showArticles(data));
 
@@ -14,7 +15,7 @@ const showArticles = (articlesList) => {
                 <span class="gray"> in </span>
                 <span>${article.category}</span>
             </h4>
-            <h2><a href="./articles/articles-details?article=${article.id} ">${article.header}</a></h2>
+            <h2><a href="./articles/articles-details/?article=${article._id} ">${article.header}</a></h2>
             <div class="introduction gray">
                 ${article.introduction}
             </div>
@@ -25,7 +26,7 @@ const showArticles = (articlesList) => {
             </div>
         </div>
         <div class="article-image">
-                <img src="${article.image}">
+                <img src="https://tvart.lt/blog/${article.image}">
         </div>`;
 
     containerElement.appendChild(articleElement);

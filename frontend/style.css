@@ -55,7 +55,7 @@ header .container {
 
 .article {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     border: 1px solid #e0e0e0;
     margin: 2em 1em;
     padding: 1em;
@@ -63,4 +63,8 @@ header .container {
 
 .article-summary, .article-image {
     padding: 1em;
+}
+
+.article-image img {
+    max-width: 200px;
 }
