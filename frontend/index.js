@@ -5,13 +5,15 @@ fetch("https://tvart.lt/blog/article/amount=100")
 
 const showArticles = (articlesList) => {
   let containerElement = document.querySelector("#articles-container");
+  const dateOptions = { year: "numeric", month: "short", day: "numeric" };
   articlesList.forEach((article) => {
+    let articleDate = new Date(article.date);
     let articleElement = document.createElement("div");
     articleElement.className = "article";
     articleElement.innerHTML = 
         `<div class="article-summary">
             <h4>
-                <span>${article.author.fullname}</span>
+                <span>${article.author.fullName}</span>
                 <span class="gray"> in </span>
                 <span>${article.category}</span>
             </h4>
@@ -20,7 +22,7 @@ const showArticles = (articlesList) => {
                 ${article.introduction}
             </div>
             <div class="article-details">
-                <span class="article-date gray">${article.date}</span>
+                <span class="article-date gray">${articleDate.toLocaleDateString("en-us", dateOptions)}</span>
                 <span class="article-reading-time gray">${article.readingDuration} min read</span>
                 
             </div>
