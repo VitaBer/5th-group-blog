@@ -15,7 +15,7 @@ const displayArticle = (article) => {
                 <h1>${article.header}</h1>
                 <div class="introduction">${article.introduction}</div>
                 <div class="article-details">
-                    <img class="author-icon" src="${article.author.profileImgURL}">
+                    <img class="author-icon" src="https://tvart.lt/blog/${article.author.profileImgURL}">
                     <span>${article.author.fullName}</span>
                     <span class="article-date">${articleDate.toLocaleDateString("en-us", dateOptions)}</span>
                     <span class="article-reading-time">${article.readingDuration} min read</span>
@@ -60,4 +60,3 @@ const displayArticle = (article) => {
       });
   });
 };
-// ToDo - Claps increase, Login/Register functionality to be taken from backend, author icon

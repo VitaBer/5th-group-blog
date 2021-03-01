@@ -1,7 +1,6 @@
 fetch("https://tvart.lt/blog/article/amount=100")
   .then((response) => response.json())
   .then((data) => {
-    console.log(data)
     showArticles(data)
   });
 
@@ -15,6 +14,7 @@ const showArticles = (articlesList) => {
     articleElement.innerHTML = 
         `<div class="article-summary">
             <h4>
+                <img class="author-icon" src="https://tvart.lt/blog/${article.author.profileImgURL}">
                 <span>${article.author.fullName}</span>
                 <span class="gray"> in </span>
                 <span>${article.category}</span>
@@ -37,3 +37,50 @@ const showArticles = (articlesList) => {
   });
 };
 
+// Shows / Hides SignIn and SignOut buttons
+const toggleSignIn = () => {
+  const signInButtonElement = document.querySelector('#btn-sign-in');
+  const signOutButtonElement = document.querySelector('#btn-sign-out');
+  if (localStorage.getItem('token')) {
+    // User is signed in
+    signInButtonElement.classList.add("hidden");
+    signOutButtonElement.classList.remove("hidden");
+
+    signOutButtonElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      signOut();
+    })
+  } else {
+    // User is not signed in
+    const signOutButtonElement = document.querySelector('#btn-sign-out');
+    signInButtonElement.classList.remove("hidden");
+    signOutButtonElement.classList.add("hidden");
+    
+  }
+};
+
+// Sends request to backend to LogOut
+const signOut = () => {
+  fetch(`https://tvart.lt/blog/user/logout`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      token: localStorage.getItem("token"),
+    },
+  })
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+    
+    localStorage.removeItem('token');
+    toggleSignIn();
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+}
+
+toggleSignIn();
+
+// ToDo - Register functionality (button), article Details(nicer formatting with images), article cateogry comments

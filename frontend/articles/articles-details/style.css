@@ -51,3 +51,10 @@ aside #add-clap-button {
     font-size: 32px;
     cursor: pointer;
 }
+
+.author-icon {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    vertical-align: bottom;
+}

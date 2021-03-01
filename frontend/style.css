@@ -68,3 +68,14 @@ header .container {
 .article-image img {
     max-width: 200px;
 }
+
+.author-icon {
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    vertical-align: bottom;
+}
+
+.hidden {
+    display: none;
+}
