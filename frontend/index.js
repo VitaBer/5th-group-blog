@@ -1,7 +1,9 @@
-
 fetch("https://tvart.lt/blog/article/amount=100")
   .then((response) => response.json())
-  .then((data) => showArticles(data));
+  .then((data) => {
+    console.log(data)
+    showArticles(data)
+  });
 
 const showArticles = (articlesList) => {
   let containerElement = document.querySelector("#articles-container");
@@ -34,3 +36,4 @@ const showArticles = (articlesList) => {
     containerElement.appendChild(articleElement);
   });
 };
+

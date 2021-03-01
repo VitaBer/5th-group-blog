@@ -28,7 +28,14 @@ const ArticleSchema = mongoose.Schema({
         type: Number,
         min: [1, 'reading length must be at least 1']
     },
-    comments: [mongoose.Schema.Types.ObjectId]
+    comments: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'comment'
+    }],
+    category: {
+        type: String,
+        required: true
+    }
 })
 
 const Article = mongoose.model('article', ArticleSchema)
