@@ -12,7 +12,7 @@ getArticles = async (req, res) => {
 
 getArticle = async (req, res) => {
     try {
-        const article = await await Article.findOne({_id: req.params.id})
+        const article = await Article.findOne({_id: req.params.id}).populate('author')
         if (!article) throw 'no such article'
         res.json(article)
     } catch (e) {
