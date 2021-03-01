@@ -31,7 +31,11 @@ const ArticleSchema = mongoose.Schema({
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'comment'
-    }]
+    }],
+    category: {
+        type: String,
+        required: true
+    }
 })
 
 const Article = mongoose.model('article', ArticleSchema)
