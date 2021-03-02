@@ -6,7 +6,7 @@ const UserSchema = mongoose.Schema({
     fullName: {
         type: String,
         required: true,
-        min: [3, 'username must be at least 3 chars long']
+        min: [3, 'name must be at least 3 chars long']
     },
     password: {
         type: String,

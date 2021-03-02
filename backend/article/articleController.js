@@ -55,10 +55,27 @@ deleteArticle = async (req, res) => {
     }
 }
 
+updateArticle = async (req, res) => {
+    console.log(req.body)
+    try {
+        const article = await Article.findOne({_id: req.params.id, author: req.user._id})
+        if (!article) throw 'no such article'
+        if (req.file) article.image = req.file.path
+        if (req.body.body) article.body = req.body.body
+        if (req.body.header) article.header = req.body.header
+        if (req.body.category) article.category = req.body.category
+        const saved = await article.save()
+        res.json(saved)
+    } catch (e) {
+        res.status(400).json(e)
+    }
+}
+
 module.exports = {
     getArticles,
     createArticle,
     clapArticle,
     deleteArticle,
-    getArticle
+    getArticle,
+    updateArticle
 }

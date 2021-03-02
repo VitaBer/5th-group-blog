@@ -26,6 +26,7 @@ router.post('/article/create', UserAuth, upload.single('articleImg'), ArticleCon
 router.post('/article/clap/:id', UserAuth, ArticleController.clapArticle)
 router.delete('/article/delete/:id', UserAuth, ArticleController.deleteArticle)
 router.get('/article/:id', ArticleController.getArticle)
+router.patch('/article/update/:id', UserAuth, upload.single('articleImg'), ArticleController.updateArticle)
 
 // comments
 router.post('/comment/create', UserAuth, CommentController.createComment)
