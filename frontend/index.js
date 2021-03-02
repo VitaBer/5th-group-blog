@@ -83,4 +83,4 @@ const signOut = () => {
 
 toggleSignIn();
 
-// ToDo - Register functionality (button), article Details(nicer formatting with images), article cateogry comments
+// ToDo - Register functionality (button), article Details(nicer formatting with images), article cateogry comments, articles by category

@@ -79,3 +79,7 @@ header .container {
 .hidden {
     display: none;
 }
+
+.logo {
+    height: 50px;
+}
