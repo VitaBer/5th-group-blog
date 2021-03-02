@@ -64,6 +64,8 @@ updateArticle = async (req, res) => {
         if (req.body.body) article.body = req.body.body
         if (req.body.header) article.header = req.body.header
         if (req.body.category) article.category = req.body.category
+        if (req.body.introduction) article.introduction = req.body.introduction
+        if (req.body.readingDuration) article.readingDuration = req.body.readingDuration
         const saved = await article.save()
         res.json(saved)
     } catch (e) {
