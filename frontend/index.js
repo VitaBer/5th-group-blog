@@ -1,4 +1,13 @@
-fetch("https://tvart.lt/blog/article/amount=100")
+const urlParams = new URLSearchParams(window.location.search);
+const category = urlParams.get("category");
+const url = category 
+  ? `https://tvart.lt/blog/article/amount=100?category=${category}` 
+  : 'https://tvart.lt/blog/article/amount=100';
+
+const categoryElement = document.querySelector('#current-category')
+categoryElement.innerHTML = category ? `${category} | ` : "";
+
+fetch(url)
   .then((response) => response.json())
   .then((data) => {
     showArticles(data)
@@ -17,7 +26,7 @@ const showArticles = (articlesList) => {
                 <img class="author-icon" src="https://tvart.lt/blog/${article.author.profileImgURL}">
                 <span>${article.author.fullName}</span>
                 <span class="gray"> in </span>
-                <span>${article.category}</span>
+                <span><a href="index.html?category=${article.category}">${article.category}</a></span>
             </h4>
             <h2><a href="./articles/articles-details/?article=${article._id} ">${article.header}</a></h2>
             <div class="introduction gray">
@@ -83,4 +92,4 @@ const signOut = () => {
 
 toggleSignIn();
 
-// ToDo - Register functionality (button), article Details(nicer formatting with images), article cateogry comments, articles by category
+// ToDo -  article comments, article create, article edit, componentize
