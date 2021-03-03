@@ -29,6 +29,11 @@ article {
 
 .article-image {
     text-align: center;
+    margin-top: 2em;
+}
+
+.article-image img {
+    max-width: 100%;
 }
 
 .article-date, .article-reading-time {

@@ -1,0 +1,31 @@
+header {
+    background-color: #ffc017;
+    border-bottom: 1px solid #000;
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+    position: sticky;
+    top: 0;
+}
+
+.logo-section {
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+.logo {
+    height: 50px;
+}
+
+.navigation-section {
+    margin: auto 0;
+}
+
+.navigation-section a {
+    text-decoration: none;
+    color: #000;
+}
+
+.hidden {
+    display: none;
+}
