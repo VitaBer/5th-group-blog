@@ -15,11 +15,6 @@ const UserAuth = require('../user/auth')
 const ArticleController = require('../article/articleController')
 const CommentController = require('../comment/commentController')
 
-// test
-router.get('/', (req, res) => {
-    res.send('veikia')
-})
-
 // articles
 router.get('/article/amount=:amount', ArticleController.getArticles)
 router.post('/article/create', UserAuth, upload.single('articleImg'), ArticleController.createArticle)

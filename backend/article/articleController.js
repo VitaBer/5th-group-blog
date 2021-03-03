@@ -56,7 +56,6 @@ deleteArticle = async (req, res) => {
 }
 
 updateArticle = async (req, res) => {
-    console.log(req.body)
     try {
         const article = await Article.findOne({_id: req.params.id, author: req.user._id})
         if (!article) throw 'no such article'
