@@ -9,10 +9,12 @@
     <script type="text/javascript" src="index.js" defer></script>
     <link rel="stylesheet" href="style.css" type="text/css">
     <link href="../../header.css" type="text/css" rel="stylesheet">
+    <link href="comments.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         type="text/css">
     <link href="http://fonts.cdnfonts.com/css/charter-itc-tt" rel="stylesheet">
     <script defer src="../../header.js" type="text/javascript"></script>
+    <script defer src="comments.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -28,6 +30,18 @@
 
     <section id="article-container">
 
+    </section>
+
+    <section id="article-comments">
+        <h4>Comments:</h4>
+        <div id="comments">
+        </div>
+
+        <h4>Add new comment:</h4>
+        <div>
+            <input type="text" id="comment-input">
+            <input type="button" id="post-comment-button" value="Post">
+        </div>
     </section>
 </body>
 

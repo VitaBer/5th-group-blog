@@ -12,7 +12,7 @@ const displayArticle = (article) => {
   let articleElement = document.querySelector("#article-container");
   articleElement.innerHTML = `<article>
             <div class="article-headline">
-                <h1 class="header">${article.header}</h1>
+                <h1>${article.header}</h1>
                 <div class="introduction">${article.introduction}</div>
                 <div class="article-details">
                     <img class="author-icon" src="https://tvart.lt/blog/${article.author.profileImgURL}">

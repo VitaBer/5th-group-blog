@@ -1,0 +1,33 @@
+
+#article-comments {
+    justify-content: start;
+    max-width: 60%;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.comment {
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: block;
+    margin: 0.5em 0 1em;
+}
+
+.comment-date {
+    color: rgba(117, 117, 117, 1);
+    font-size: 14px;
+}
+
+.comment-text {
+    line-height: 24px;
+}
+
+#comment-input, #post-comment-button {
+    display: inline-block;
+    padding: 1em;
+    margin-right: 2em;
+}
+
+#comment-input {
+    min-width: 400px;
+}
+
